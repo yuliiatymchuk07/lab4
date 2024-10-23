@@ -1,0 +1,365 @@
+:root {
+    --nav-ul-li-a: white;
+    --label-color: rgb(64, 43, 10);
+    --header-bc: #007BFF;
+}
+    
+
+/* Стилі для навігації */
+nav {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none; /* Приховано на великих екранах */
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Приховуємо меню за замовчуванням на мобільних */
+.menu-toggle {
+    display: block; /* Показуємо бургер-меню на всіх екранах */
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none; /* Приховане меню за замовчуванням */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--header-bc);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bc);
+    text-align: center;
+    z-index: 1000; /* Підняти меню над іншими елементами */
+}
+
+.nav-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Додаткові стилі для інших елементів залишаються такими ж */
+
+
+
+label {
+    color: var(--label-color);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: var(--header-bc);
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button{
+    margin-top: 2rem;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--nav-ul-li-a);
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #007BFF;
+    color: white;
+}
+
+
+/* Стилі для звичайного стану зображення */
+img, .icon {
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавний перехід */
+    width: 500px; /* Задайте розмір за бажанням */
+    height: 500px;
+}
+
+/* Ефекти при наведенні */
+img:hover, .icon:hover {
+    transform: scale(1.1); /* Масштабування зображення на 10% */
+    filter: brightness(1.2) contrast(1.1) saturate(1.5); /* Зміна яскравості, контрасту і насиченості */
+    
+}
+
+.form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+}
+
+.form {
+    --timing: 0.3s;
+    --width-of-input: 200px;
+    --height-of-input: 40px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #2f2ee9;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--input-bg,#fff);
+}
+
+.input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+}
+
+.form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+    border-radius: var(--after-border-radius);
+}
+  
+input:focus {
+    outline: none;
+}
+
+.form:focus-within:before {
+    transform: scale(1);
+}
+
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form svg {
+    width: 20px;
+}
+
+.image-hover {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    color: rgb(216, 22, 22);
+    font-size: 20px;
+    z-index: 1;
+}
+  
+  .hover-image {
+    display: block;
+    width: 200%;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.image-hover:hover .hover-image {
+    opacity: 1;
+  }
+  
+  .image-hover:hover .hover-text {
+    display: none;
+  }
+
+  #scrollTop {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Спочатку прихована */
+  }
+  
+  #scrollTop:hover {
+    background-color: #555;
+  }
+
+  @media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+    .form {
+        width: 150px;
+    }
+    #scrollTop {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Кнопка Sign in стає нерухомою на малих екранах */
+@media (max-width: 576px) {
+    button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+.testimonials {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.feedback-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feedback-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-card blockquote {
+    font-style: italic;
+    color: #333;
+}
+
+.feedback-card cite {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #007BFF;
+}
+
+.custom-modal {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: modal-appear 0.5s ease;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-header {
+    background-color: #007BFF;
+    color: white;
+    border-bottom: none;
+}
+
+.custom-input {
+    border-radius: 10px;
+    border: 1px solid #007BFF;
+    padding: 0.75rem;
+}
+
+.custom-button {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
